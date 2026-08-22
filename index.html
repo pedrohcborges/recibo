@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>Gerador de Recibos</title>
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Recibos">
+<style>
+  html, body { margin: 0; padding: 0; background: #F2F4F7; }
+  #boot-msg {
+    font-family: -apple-system, Inter, sans-serif; color: #5B6B85;
+    padding: 40px 20px; text-align: center; font-size: 14px; line-height: 1.6;
+  }
+  #boot-error {
+    display: none; font-family: -apple-system, Inter, sans-serif; color: #B23A4E;
+    background: #FBEBEE; border: 1px solid #B23A4E55; border-radius: 8px;
+    margin: 20px; padding: 16px; font-size: 13px; white-space: pre-wrap; word-break: break-word;
+  }
+</style>
+<script crossorigin src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.25.6/babel.min.js"></script>
+</head>
+<body>
+<div id="root"><div id="boot-msg">Carregando…</div></div>
+<div id="boot-error"></div>
+
+<script>
+  window.addEventListener("error", function (e) {
+    var box = document.getElementById("boot-error");
+    if (!box) return;
+    box.style.display = "block";
+    box.textContent = "Deu um erro ao carregar o app:\n" + (e.message || e.error || "erro desconhecido") +
+      "\n\nVerifique sua conexão com a internet e recarregue a página. Se persistir, avise para corrigirmos.";
+  });
+</script>
+
+<script>
+  // Armazenamento local no dispositivo — substitui o window.storage do ambiente
+  // Claude por localStorage, para o app funcionar sozinho, fora do claude.ai.
+  // Guarda os dados só neste navegador/aparelho.
+  window.storage = {
+    async get(key) {
+      const raw = localStorage.getItem("recibo-app:" + key);
+      if (raw === null) throw new Error("not found");
+      return { key, value: raw, shared: false };
+    },
+    async set(key, value) {
+      localStorage.setItem("recibo-app:" + key, value);
+      return { key, value, shared: false };
+    },
+    async delete(key) {
+      localStorage.removeItem("recibo-app:" + key);
+      return { key, deleted: true, shared: false };
+    },
+    async list(prefix) {
+      const p = "recibo-app:" + (prefix || "");
+      const keys = Object.keys(localStorage)
+        .filter((k) => k.startsWith(p))
+        .map((k) => k.slice("recibo-app:".length));
+      return { keys, prefix: prefix || null, shared: false };
+    },
+  };
+</script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef, useCallback } = React;
+
+/* ---------- helpers ---------- */
+
+const UNIDADES = ["zero","um","dois","três","quatro","cinco","seis","sete","oito","nove"];
+const DEZ_A_DEZENOVE = ["dez","onze","doze","treze","catorze","quinze","dezesseis","dezessete","dezoito","dezenove"];
+const DEZENAS = ["","","vinte","trinta","quarenta","cinquenta","sessenta","setenta","oitenta","noventa"];
+const CENTENAS = ["","cento","duzentos","trezentos","quatrocentos","quinhentos","seiscentos","setecentos","oitocentos","novecentos"];
+const MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+
+function tresDigitos(n) {
+  if (n === 0) return "";
+  if (n === 100) return "cem";
+  const c = Math.floor(n / 100);
+  const resto = n % 100;
+  const partes = [];
+  if (c > 0) partes.push(CENTENAS[c]);
+  if (resto > 0) {
+    if (resto < 10) partes.push(UNIDADES[resto]);
+    else if (resto < 20) partes.push(DEZ_A_DEZENOVE[resto - 10]);
+    else {
+      const d = Math.floor(resto / 10);
+      const u = resto % 10;
+      partes.push(u > 0 ? `${DEZENAS[d]} e ${UNIDADES[u]}` : DEZENAS[d]);
+    }
+  }
+  return partes.join(" e ");
+}
+
+function numeroPorExtenso(num) {
+  if (num === 0) return "zero";
+  const milhar = Math.floor(num / 1000);
+  const resto = num % 1000;
+  const partes = [];
+  if (milhar > 0) partes.push(milhar === 1 ? "mil" : `${tresDigitos(milhar)} mil`);
+  if (resto > 0) partes.push(tresDigitos(resto));
+  const juntor = milhar > 0 && resto > 0 && resto < 100 ? " e " : " ";
+  return partes.join(juntor);
+}
+
+function valorPorExtenso(valor) {
+  const inteiro = Math.floor(valor);
+  const centavos = Math.round((valor - inteiro) * 100);
+  let texto = `${numeroPorExtenso(inteiro)} ${inteiro === 1 ? "real" : "reais"}`;
+  if (centavos > 0) {
+    texto += ` e ${numeroPorExtenso(centavos)} ${centavos === 1 ? "centavo" : "centavos"}`;
+  }
+  return texto;
+}
+
+function maskCPF(v) {
+  v = v.replace(/\D/g, "").slice(0, 11);
+  v = v.replace(/(\d{3})(\d)/, "$1.$2");
+  v = v.replace(/(\d{3})(\d)/, "$1.$2");
+  v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  return v;
+}
+
+function centsToBRL(cents) {
+  return (cents / 100).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function formatDatePtBR(isoDate) {
+  if (!isoDate) return "";
+  const [y, m, d] = isoDate.split("-").map(Number);
+  return `${d} de ${MESES[m - 1]} de ${y}`;
+}
+
+function todayISO() {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+/* ---------- signature pad ---------- */
+
+function SignaturePad({ initialDataUrl, onSave, ink }) {
+  const canvasRef = useRef(null);
+  const drawing = useRef(false);
+  const hasStroke = useRef(false);
+  const [empty, setEmpty] = useState(!initialDataUrl);
+
+  const getCtx = () => canvasRef.current.getContext("2d");
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = getCtx();
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = ink;
+    ctx.lineWidth = 2.4;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    if (initialDataUrl) {
+      const img = new Image();
+      img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      img.src = initialDataUrl;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const pos = (e) => {
+    const rect = canvasRef.current.getBoundingClientRect();
+    const point = e.touches ? e.touches[0] : e;
+    return {
+      x: ((point.clientX - rect.left) / rect.width) * canvasRef.current.width,
+      y: ((point.clientY - rect.top) / rect.height) * canvasRef.current.height,
+    };
+  };
+
+  const start = (e) => {
+    if (e.cancelable) e.preventDefault();
+    drawing.current = true;
+    hasStroke.current = true;
+    setEmpty(false);
+    const { x, y } = pos(e);
+    const ctx = getCtx();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  };
+
+  const move = (e) => {
+    if (!drawing.current) return;
+    if (e.cancelable) e.preventDefault();
+    const { x, y } = pos(e);
+    const ctx = getCtx();
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  };
+
+  const end = (e) => {
+    if (e && e.cancelable) e.preventDefault();
+    drawing.current = false;
+  };
+
+  // Touch listeners are attached natively (not via React's onTouch* props)
+  // because React binds touch handlers as passive by default in most browsers,
+  // which silently ignores preventDefault() and lets the page scroll while drawing.
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    canvas.addEventListener("touchstart", start, { passive: false });
+    canvas.addEventListener("touchmove", move, { passive: false });
+    canvas.addEventListener("touchend", end, { passive: false });
+    canvas.addEventListener("touchcancel", end, { passive: false });
+    return () => {
+      canvas.removeEventListener("touchstart", start);
+      canvas.removeEventListener("touchmove", move);
+      canvas.removeEventListener("touchend", end);
+      canvas.removeEventListener("touchcancel", end);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const clear = () => {
+    const canvas = canvasRef.current;
+    const ctx = getCtx();
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    hasStroke.current = false;
+    setEmpty(true);
+  };
+
+  const save = () => {
+    if (empty) return;
+    onSave(canvasRef.current.toDataURL("image/png"));
+  };
+
+  const fileInputRef = useRef(null);
+
+  const handleFile = (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = canvasRef.current;
+        const ctx = getCtx();
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // encaixa a imagem mantendo proporção, centralizada
+        const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+        const w = img.width * scale;
+        const h = img.height * scale;
+        ctx.drawImage(img, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
+        hasStroke.current = true;
+        setEmpty(false);
+        onSave(canvas.toDataURL("image/png"));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+    e.target.value = "";
+  };
+
+  return (
+    <div>
+      <canvas
+        ref={canvasRef}
+        width={520}
+        height={140}
+        style={{
+          width: "100%",
+          height: 120,
+          borderRadius: 4,
+          border: `1.5px dashed #C7CDD9`,
+          touchAction: "none",
+          cursor: "crosshair",
+          background: "#fff",
+        }}
+        onMouseDown={start}
+        onMouseMove={move}
+        onMouseUp={end}
+        onMouseLeave={end}
+      />
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        style={{ display: "none" }}
+        onChange={handleFile}
+      />
+      <div style={{ display: "flex", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
+        <button className="btn-ghost" onClick={clear} type="button">Limpar</button>
+        <button className="btn-ghost" onClick={() => fileInputRef.current.click()} type="button">
+          Usar foto salva
+        </button>
+        <button className="btn-ink" onClick={save} type="button" disabled={empty}>Salvar assinatura</button>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- receipt document (shared by screen + print) ---------- */
+
+function ReceiptDocument({ seller, form, signature, numeroRecibo, valorReais }) {
+  return (
+    <div style={{ color: TOKENS.ink }}>
+      <div style={{ height: 6, background: TOKENS.accent }} />
+      <div style={{ padding: "30px 34px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", borderBottom: `2px solid ${TOKENS.ink}`, paddingBottom: 14, marginBottom: 20 }}>
+          <div>
+            <div style={{ fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: TOKENS.inkMuted, fontWeight: 700, marginBottom: 4 }}>
+              Recibo de pagamento
+            </div>
+            <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 12, color: TOKENS.inkMuted }}>
+              Nº {numeroRecibo}
+            </div>
+          </div>
+          <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 18, fontWeight: 700, background: TOKENS.accentSoft, color: TOKENS.accent, borderRadius: 6, padding: "6px 12px" }}>
+            {valorReais ? `R$ ${centsToBRL(parseInt(form.valueCents || "0", 10))}` : "R$ 0,00"}
+          </div>
+        </div>
+
+        <p style={{ fontSize: 15, lineHeight: 1.75, margin: "0 0 14px" }}>
+          Recebi de <strong>{form.payerName || "________________"}</strong> — CPF{" "}
+          <span style={{ fontFamily: "'Space Mono', monospace" }}>{form.payerCpf || "___.___.___-__"}</span>, a
+          importância de{" "}
+          <strong>{valorReais ? valorPorExtenso(valorReais) : "________________"}</strong>, referente a{" "}
+          <strong>{form.description || "________________"}</strong>.
+        </p>
+        <p style={{ fontSize: 15, lineHeight: 1.75, margin: "0 0 14px" }}>
+          Para maior clareza, firmo o presente recibo, que comprova o recebimento integral do valor
+          mencionado, concedendo <strong>quitação plena, geral e irrevogável</strong> pela quantia recebida.
+        </p>
+        {seller.pix && (
+          <p style={{ fontSize: 13.5, color: TOKENS.inkMuted, margin: "0 0 22px" }}>
+            Pagamento recebido através da chave Pix: {seller.pix}
+          </p>
+        )}
+
+        <div style={{ textAlign: "right", fontSize: 14, color: TOKENS.inkMuted, marginBottom: 26 }}>
+          {seller.cidade || "________"}, {formatDatePtBR(form.date)}
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 10 }}>
+          {signature ? (
+            <img src={signature} alt="Assinatura" style={{ height: 54, marginBottom: -6 }} />
+          ) : (
+            <div style={{ height: 54 }} />
+          )}
+          <div style={{ width: 260, borderTop: `1.5px solid ${TOKENS.ink}`, marginTop: 6, paddingTop: 8, textAlign: "center" }}>
+            <div style={{ fontWeight: 700, fontSize: 14 }}>{seller.nome || "________________"}</div>
+            <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 12, color: TOKENS.inkMuted }}>
+              CPF: {seller.cpf || "___.___.___-__"}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- main app ---------- */
+
+const TOKENS = {
+  bg: "#F2F4F7",
+  card: "#FFFFFF",
+  ink: "#0F1E3D",
+  inkMuted: "#5B6B85",
+  accent: "#0F6E68",
+  accentSoft: "#E4F1EF",
+  line: "#E1E5EC",
+  danger: "#B23A4E",
+  dangerSoft: "#FBEBEE",
+  success: "#1E8A6E",
+  successSoft: "#E7F5EF",
+};
+
+function App() {
+  const [ready, setReady] = useState(false);
+  const [seller, setSeller] = useState({ nome: "", cpf: "", cidade: "", pix: "" });
+  const [sellerSavedNote, setSellerSavedNote] = useState("");
+  const [signature, setSignature] = useState(null);
+  const [receipts, setReceipts] = useState([]);
+  const [form, setForm] = useState({
+    payerName: "",
+    payerCpf: "",
+    description: "",
+    valueCents: "",
+    date: todayISO(),
+  });
+  const [savedFlash, setSavedFlash] = useState("");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const [s, sig, rec] = await Promise.allSettled([
+          window.storage.get("seller-data", false),
+          window.storage.get("signature", false),
+          window.storage.get("receipts", false),
+        ]);
+        if (s.status === "fulfilled" && s.value) setSeller(JSON.parse(s.value.value));
+        if (sig.status === "fulfilled" && sig.value) setSignature(sig.value.value);
+        if (rec.status === "fulfilled" && rec.value) setReceipts(JSON.parse(rec.value.value));
+      } catch (e) {
+        // no existing data yet — fine
+      } finally {
+        setReady(true);
+      }
+    })();
+  }, []);
+
+  const saveSeller = useCallback(async (next) => {
+    setSeller(next);
+    try {
+      await window.storage.set("seller-data", JSON.stringify(next), false);
+      setSellerSavedNote("Salvo");
+      setTimeout(() => setSellerSavedNote(""), 1400);
+    } catch (e) {
+      setSellerSavedNote("Falha ao salvar");
+    }
+  }, []);
+
+  const saveSignature = useCallback(async (dataUrl) => {
+    setSignature(dataUrl);
+    try {
+      await window.storage.set("signature", dataUrl, false);
+      setSavedFlash("Assinatura salva");
+      setTimeout(() => setSavedFlash(""), 1600);
+    } catch (e) {
+      setError("Não foi possível salvar a assinatura.");
+    }
+  }, []);
+
+  const valorReais = form.valueCents ? parseInt(form.valueCents, 10) / 100 : 0;
+
+  const handleGerar = async () => {
+    setError("");
+    if (!seller.nome || !seller.cpf) {
+      setError("Preencha seu nome e CPF em \u201cSeus dados\u201d antes de gerar o recibo.");
+      return;
+    }
+    if (!signature) {
+      setError("Salve sua assinatura antes de gerar o recibo.");
+      return;
+    }
+    if (!form.payerName || !form.payerCpf || !form.description || !valorReais) {
+      setError("Preencha nome do pagador, CPF, produto/serviço e valor.");
+      return;
+    }
+    const novo = {
+      id: Date.now().toString(36),
+      payerName: form.payerName,
+      payerCpf: form.payerCpf,
+      description: form.description,
+      value: valorReais,
+      date: form.date,
+      seller: { ...seller },
+      signature,
+      createdAt: new Date().toISOString(),
+    };
+    const next = [novo, ...receipts];
+    setReceipts(next);
+    try {
+      await window.storage.set("receipts", JSON.stringify(next), false);
+      setSavedFlash("Recibo salvo no histórico");
+      setTimeout(() => setSavedFlash(""), 1800);
+    } catch (e) {
+      setError("Recibo gerado, mas não consegui salvar no histórico.");
+    }
+  };
+
+  const handleDeleteReceipt = async (id) => {
+    const next = receipts.filter((r) => r.id !== id);
+    setReceipts(next);
+    try {
+      await window.storage.set("receipts", JSON.stringify(next), false);
+    } catch (e) {
+      // ignore
+    }
+  };
+
+  const loadReceiptIntoForm = (r) => {
+    setForm({
+      payerName: r.payerName,
+      payerCpf: r.payerCpf,
+      description: r.description,
+      valueCents: String(Math.round(r.value * 100)),
+      date: r.date,
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const numeroRecibo = String(receipts.length + 1).padStart(4, "0");
+
+  if (!ready) {
+    return (
+      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: TOKENS.bg, color: TOKENS.inkMuted, fontFamily: "Inter, sans-serif" }}>
+        Carregando seus dados…
+      </div>
+    );
+  }
+
+  return (
+    <div className="app-wrapper" style={{ minHeight: "100vh", background: TOKENS.bg, fontFamily: "'Inter', sans-serif" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+        * { box-sizing: border-box; }
+        input, textarea { font-family: 'Inter', sans-serif; }
+        input:focus, textarea:focus, canvas:focus {
+          outline: 2px solid ${TOKENS.accent};
+          outline-offset: 1px;
+        }
+        .field-label {
+          font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+          color: ${TOKENS.inkMuted}; font-weight: 600; margin-bottom: 4px; display: block;
+        }
+        .field-input {
+          width: 100%; padding: 9px 11px; border-radius: 6px;
+          border: 1.5px solid ${TOKENS.line}; background: #fff;
+          font-size: 14.5px; color: ${TOKENS.ink};
+        }
+        .btn-ink {
+          background: ${TOKENS.ink}; color: #fff; border: none; border-radius: 6px;
+          padding: 10px 18px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+          letter-spacing: .01em;
+        }
+        .btn-ink:disabled { opacity: .4; cursor: not-allowed; }
+        .btn-ghost {
+          background: transparent; color: ${TOKENS.inkMuted}; border: 1.5px solid ${TOKENS.line};
+          border-radius: 6px; padding: 10px 16px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+        }
+        .btn-primary {
+          background: ${TOKENS.accent}; color: #fff; border: none; border-radius: 6px;
+          padding: 11px 20px; font-size: 13.5px; font-weight: 700; cursor: pointer;
+        }
+        .card {
+          background: ${TOKENS.card}; border: 1px solid ${TOKENS.line}; border-radius: 10px; padding: 18px;
+        }
+        .print-only { display: none; }
+        @media print {
+          .screen-only { display: none !important; }
+          .print-only { display: block !important; }
+          .app-wrapper { background: #fff !important; min-height: 0 !important; }
+          html, body { background: #fff !important; }
+          @page { margin: 15mm; }
+        }
+        @media (max-width: 860px) {
+          .layout { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
+      <div id="app-chrome" className="screen-only" style={{ maxWidth: 1080, margin: "0 auto", padding: "28px 20px 60px" }}>
+        <header style={{ marginBottom: 22 }}>
+          <div style={{ fontFamily: "'Fraunces', serif", fontSize: 26, fontWeight: 700, color: TOKENS.ink }}>
+            Gerador de Recibos
+          </div>
+          <div style={{ color: TOKENS.inkMuted, fontSize: 13.5, marginTop: 3 }}>
+            Seus dados e sua assinatura ficam salvos aqui — só preencha os dados de quem está pagando.
+          </div>
+        </header>
+
+        {error && (
+          <div style={{ background: TOKENS.dangerSoft, color: TOKENS.danger, border: `1px solid ${TOKENS.danger}33`, borderRadius: 8, padding: "10px 14px", fontSize: 13.5, marginBottom: 16 }}>
+            {error}
+          </div>
+        )}
+        {savedFlash && (
+          <div style={{ background: TOKENS.successSoft, color: TOKENS.success, border: `1px solid ${TOKENS.success}33`, borderRadius: 8, padding: "10px 14px", fontSize: 13.5, marginBottom: 16 }}>
+            {savedFlash}
+          </div>
+        )}
+
+        <div className="layout" style={{ display: "grid", gridTemplateColumns: "380px 1fr", gap: 22, alignItems: "start" }}>
+          {/* LEFT: forms */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+            <section className="card">
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                <div style={{ fontFamily: "'Fraunces', serif", fontSize: 16, fontWeight: 600, color: TOKENS.ink }}>Seus dados</div>
+                <span style={{ fontSize: 11, color: TOKENS.success, minHeight: 14 }}>{sellerSavedNote}</span>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <div>
+                  <label className="field-label">Seu nome</label>
+                  <input className="field-input" value={seller.nome}
+                    onChange={(e) => setSeller({ ...seller, nome: e.target.value })}
+                    onBlur={() => saveSeller(seller)} placeholder="Nome completo" />
+                </div>
+                <div>
+                  <label className="field-label">Seu CPF</label>
+                  <input className="field-input" value={seller.cpf}
+                    onChange={(e) => setSeller({ ...seller, cpf: maskCPF(e.target.value) })}
+                    onBlur={() => saveSeller(seller)} placeholder="000.000.000-00" inputMode="numeric" />
+                </div>
+                <div>
+                  <label className="field-label">Cidade (para o recibo)</label>
+                  <input className="field-input" value={seller.cidade}
+                    onChange={(e) => setSeller({ ...seller, cidade: e.target.value })}
+                    onBlur={() => saveSeller(seller)} placeholder="Erechim" />
+                </div>
+                <div>
+                  <label className="field-label">Chave Pix (opcional)</label>
+                  <input className="field-input" value={seller.pix}
+                    onChange={(e) => setSeller({ ...seller, pix: e.target.value })}
+                    onBlur={() => saveSeller(seller)} placeholder="CPF, e-mail, telefone..." />
+                </div>
+              </div>
+            </section>
+
+            <section className="card">
+              <div style={{ fontFamily: "'Fraunces', serif", fontSize: 16, fontWeight: 600, color: TOKENS.ink, marginBottom: 10 }}>
+                Sua assinatura
+              </div>
+              <SignaturePad initialDataUrl={signature} onSave={saveSignature} ink={TOKENS.ink} />
+            </section>
+
+            <section className="card">
+              <div style={{ fontFamily: "'Fraunces', serif", fontSize: 16, fontWeight: 600, color: TOKENS.ink, marginBottom: 12 }}>
+                Novo recibo
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <div>
+                  <label className="field-label">Nome de quem vai pagar</label>
+                  <input className="field-input" value={form.payerName}
+                    onChange={(e) => setForm({ ...form, payerName: e.target.value })} placeholder="Nome do pagador" />
+                </div>
+                <div>
+                  <label className="field-label">CPF de quem vai pagar</label>
+                  <input className="field-input" value={form.payerCpf}
+                    onChange={(e) => setForm({ ...form, payerCpf: maskCPF(e.target.value) })} placeholder="000.000.000-00" inputMode="numeric" />
+                </div>
+                <div>
+                  <label className="field-label">Produto / serviço</label>
+                  <input className="field-input" value={form.description}
+                    onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Ex: Suporte iPad" />
+                </div>
+                <div>
+                  <label className="field-label">Valor (R$)</label>
+                  <input className="field-input" value={form.valueCents ? centsToBRL(parseInt(form.valueCents, 10)) : ""}
+                    onChange={(e) => setForm({ ...form, valueCents: e.target.value.replace(/\D/g, "") })}
+                    placeholder="0,00" inputMode="numeric" />
+                </div>
+                <div>
+                  <label className="field-label">Data</label>
+                  <input className="field-input" type="date" value={form.date}
+                    onChange={(e) => setForm({ ...form, date: e.target.value })} />
+                </div>
+                <button className="btn-primary" onClick={handleGerar} type="button" style={{ marginTop: 4 }}>
+                  Gerar e salvar recibo
+                </button>
+              </div>
+            </section>
+          </div>
+
+          {/* RIGHT: preview */}
+          <div>
+            <div className="card" style={{ padding: 0, overflow: "hidden", boxShadow: "0 1px 3px rgba(15,30,61,.06), 0 10px 24px rgba(15,30,61,.06)" }}>
+              <ReceiptDocument seller={seller} form={form} signature={signature} numeroRecibo={numeroRecibo} valorReais={valorReais} />
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 14 }}>
+              <button className="btn-ghost" onClick={() => window.print()} type="button">
+                Imprimir / Salvar como PDF
+              </button>
+            </div>
+
+            {receipts.length > 0 && (
+              <div style={{ marginTop: 30 }}>
+                <div style={{ fontFamily: "'Fraunces', serif", fontSize: 16, fontWeight: 600, color: TOKENS.ink, marginBottom: 10 }}>
+                  Recibos anteriores
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {receipts.map((r) => (
+                    <div key={r.id} className="card" style={{ padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ color: TOKENS.ink, fontSize: 13.5, fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                          {r.payerName} — R$ {r.value.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                        </div>
+                        <div style={{ color: TOKENS.inkMuted, fontSize: 12 }}>{r.description} · {formatDatePtBR(r.date)}</div>
+                      </div>
+                      <div style={{ display: "flex", gap: 6, flexShrink: 0 }}>
+                        <button className="btn-ghost" style={{ padding: "6px 10px", fontSize: 12 }} onClick={() => loadReceiptIntoForm(r)} type="button">Reabrir</button>
+                        <button className="btn-ghost" style={{ padding: "6px 10px", fontSize: 12, color: TOKENS.danger, borderColor: `${TOKENS.danger}55` }} onClick={() => handleDeleteReceipt(r.id)} type="button">Excluir</button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div id="print-area" className="print-only">
+        <ReceiptDocument seller={seller} form={form} signature={signature} numeroRecibo={numeroRecibo} valorReais={valorReais} />
+      </div>
+    </div>
+  );
+}
+
+try {
+  const rootEl = document.getElementById("root");
+  ReactDOM.createRoot(rootEl).render(<App />);
+} catch (err) {
+  const box = document.getElementById("boot-error");
+  if (box) {
+    box.style.display = "block";
+    box.textContent = "Deu um erro ao iniciar o app:\n" + (err && err.message ? err.message : String(err));
+  }
+}
+</script>
+</body>
+</html>
